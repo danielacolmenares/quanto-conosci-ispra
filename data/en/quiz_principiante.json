@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Where is Ispra located?",
+    "media": {
+      "question": "img/principiante_q1_domanda.jpg"
+    },
+    "options": [
+      "On Lake Como",
+      "On Lake Maggiore",
+      "On Lake Garda"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Which European institution is based in Ispra?",
+    "media": {
+      "question": "img/principiante_q2_domanda.jpg"
+    },
+    "options": [
+      "European Central Bank",
+      "Joint Research Centre (JRC)",
+      "European Parliament"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "In which province is Ispra located?",
+    "media": {
+      "question": "img/principiante_q3_domanda.jpg"
+    },
+    "options": [
+      "Varese",
+      "Como",
+      "Novara"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "How many lakes are there in the province of Varese?",
+    "media": {
+      "question": "img/principiante_q4_domanda.jpg"
+    },
+    "options": [
+      "7",
+      "4",
+      "5"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "What is the name of Ispra’s main lakeside promenade?",
+    "media": {
+      "question": "img/principiante_q5_domanda.jpg"
+    },
+    "options": [
+      "Lungolago Europa",
+      "Lungolago Garibaldi",
+      "Lungolago dei Pescatori"
+    ],
+    "correct": 0
+  }
+]

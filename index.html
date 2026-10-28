@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- ========================== -->
+  <!-- 🔹 META BASE -->
+  <!-- ========================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Titolo e descrizione SEO -->
+  <title>Quanto conosci Ispra? | Quiz bilingue</title>
+  <meta name="description" content="Scopri quanto conosci Ispra! Mettiti alla prova con il quiz interattivo creato da www.danielacolmenares.it.">
+
+  <!-- ========================== -->
+  <!-- 🔹 OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
+  <!-- ========================== -->
+  <meta property="og:title" content="Quanto conosci Ispra? Il quiz bilingue">
+  <meta property="og:description" content="Mettiti alla prova e scopri se sei un vero Isprese o sei solo di passaggio!">
+  <meta property="og:image" content="https://danielacolmenares.github.io/quanto-conosci-ispra/img/copertina.jpg">
+  <meta property="og:url" content="https://danielacolmenares.github.io/quanto-conosci-ispra/">
+  <meta property="og:type" content="website">
+
+  <!-- ========================== -->
+  <!-- 🔹 TWITTER CARDS -->
+  <!-- ========================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quanto conosci Ispra? Il quiz bilingue">
+  <meta name="twitter:description" content="Mettiti alla prova e scopri se sei un vero Isprese o solo di passaggio!">
+  <meta name="twitter:image" content="https://danielacolmenares.github.io/quanto-conosci-ispra/img/copertina.jpg">
+
+  <!-- ========================== -->
+  <!-- 🔹 STILI DEL QUIZ -->
+  <!-- ========================== -->
+  <style>
+    :root { --main-color: #0077b6; --bg-light: #f5f8fa; --btn-bg: #e6f2ff; --btn-hover: #cce5ff; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-light);
+      margin: 0; padding: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-start;
+      padding-bottom: 80px;
+    }
+    #header { height: 72px; width: 100%; display: flex; align-items: center; justify-content: flex-end; padding: 0 16px; }
+    @media (max-width: 600px){ #header { padding-top: calc(8px + env(safe-area-inset-top)); } }
+    #language-switcher { display: flex; gap: 8px; }
+    #language-switcher button {
+      padding: 8px 16px; background: white; border: 2px solid var(--main-color);
+      border-radius: 8px; cursor: pointer; font-weight: 600;
+      transition: all 0.3s; color: var(--main-color);
+    }
+    #language-switcher button.active { background: var(--main-color); color: white; }
+    #language-switcher button:hover:not(.active) { background: var(--btn-hover); }
+    #quiz-container {
+      width: 95%; max-width: 480px; background: white; border-radius: 14px;
+      padding: 20px; margin: 0 auto 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center; position: relative; overflow: visible;
+    }
+    .fade { opacity: 0; transition: opacity 0.6s ease-in-out; }
+    .fade.show { opacity: 1; }
+    .question { font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: #222; }
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .options button {
+      padding: 14px; font-size: 1rem; background: var(--btn-bg);
+      border: 1px solid #d0d0d0; border-radius: 10px; cursor: pointer; transition: background 0.3s;
+    }
+    .options button:hover { background: var(--btn-hover); }
+    #quiz-content > button:not(#stop-btn), #restart-container button {
+      padding: 18px 24px; font-size: 1.2rem; font-weight: 600;
+      background: var(--main-color); color: white; border: none; border-radius: 12px;
+      cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,119,182,0.3);
+      min-height: 60px; display: block; width: 100%; margin: 12px 0;
+    }
+    #quiz-content > button:hover, #restart-container button:hover {
+      background: #005a8c; transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,119,182,0.4);
+    }
+    #feedback { font-weight: bold; margin-top: 15px; }
+    .progress-bar { width: 100%; height: 6px; background-color: #e0e0e0; border-radius: 3px; margin-bottom: 15px; overflow: hidden; }
+    .progress { height: 6px; background-color: var(--main-color); width: 100%; transition: width 1s linear; }
+    #stop-btn {
+      position: relative; margin-top: 12px; background: #ff5e5e; color: white; border: none; border-radius: 8px;
+      padding: 10px 0; font-size: 1rem; font-weight: 600; cursor: pointer; display: block; width: 100%;
+      opacity: 0.95; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #stop-btn:hover { background: #e34c4c; opacity: 1; }
+    @media (min-width: 601px){
+      #stop-btn { width: auto; padding: 6px 16px; font-size: 0.9rem; display: inline-block; margin-top: 10px; }
+    }
+    #footer {
+      position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 0.8rem; color: #666;
+      background: rgba(255,255,255,0.95); padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+      border-top: 1px solid #ddd; left: 0;
+    }
+    #footer a { color: var(--main-color); text-decoration: none; }
+  </style>
+</head>
+
+<body>
+<div id="header"><div id="language-switcher"><button class="lang-btn active" data-lang="it" onclick="switchLanguage('it')">🇮🇹 IT</button><button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">🇬🇧 EN</button></div></div>
+
+<div id="quiz-container" class="fade show">
+  <div id="quiz-content">
+    <div class="intro-media">
+      <video id="inlineIntroVideo" playsinline autoplay muted loop preload="metadata" poster="img/copertina.jpg" style="width:100%; border-radius:10px; margin-bottom:15px;" aria-label="Video introduttivo del quiz">
+        <source src="video/it/intro_1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <h3 id="level-title">Scegli il tuo livello</h3>
+    <button onclick='selectLevel("principiante")'><span class="level-icon">🌱</span> <span class="level-text">Principiante</span></button>
+    <button onclick='selectLevel("medio")'><span class="level-icon">⭐</span> <span class="level-text">Medio</span></button>
+    <button onclick='selectLevel("master")'><span class="level-icon">🏆</span> <span class="level-text">Master</span></button>
+  </div>
+</div>
+
+<script>
+const translations = {
+  it:{mainTitle:"Quanto conosci Ispra?",levelTitle:"Scegli il tuo livello",beginner:"Principiante",medium:"Medio",master:"Master",skipIntro:"⏭️ Salta intro",stopQuiz:"← Stop Quiz",timeLeft:"⏳ Tempo rimasto:",seconds:"s",timeout:"⏰ Tempo scaduto!",correct:"✅ Corretto!",wrong:"❌ Sbagliato!",scoreText:"Hai risposto correttamente a",of:"su",questions:"domande!",restart:"🔄 Ricomincia lo stesso livello",mainMenu:"🏠 Torna al menu principale",footer:"Creato da"},
+  en:{mainTitle:"How well do you know Ispra?",levelTitle:"Choose your level",beginner:"Beginner",medium:"Medium",master:"Master",skipIntro:"⏭️ Skip intro",stopQuiz:"← Stop Quiz",timeLeft:"⏳ Time left:",seconds:"s",timeout:"⏰ Time's up!",correct:"✅ Correct!",wrong:"❌ Wrong!",scoreText:"You answered correctly",of:"out of",questions:"questions!",restart:"🔄 Restart same level",mainMenu:"🏠 Back to main menu",footer:"Created by"}
+};
+let currentLang='it',quizData=[],currentQuestion=0,score=0,timerInterval=null,timeLeft=15,selectedLevel=null,levelVideo=null,audioEnabled=false;
+const t=(k)=>translations[currentLang][k];
+
+function switchLanguage(lang){currentLang=lang;document.documentElement.lang=lang;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));updateUIText();}
+function updateUIText(){const lt=document.getElementById('level-title');if(lt)lt.textContent=t('levelTitle');const lv=document.querySelectorAll('.level-text');if(lv.length===3){lv[0].textContent=t('beginner');lv[1].textContent=t('medium');lv[2].textContent=t('master');}const ft=document.getElementById('footer-text');if(ft)ft.textContent=t('footer');const iv=document.getElementById('inlineIntroVideo');if(iv)iv.src=currentLang==='en'?'video/en/intro_1.mp4':'video/it/intro_1.mp4';}
+function enableAudio(){audioEnabled=true;}
+const quizContainer=document.getElementById("quiz-content"),mainContainer=document.getElementById("quiz-container");
+function fadeOutIn(cb){mainContainer.classList.remove('show');setTimeout(()=>{cb();mainContainer.classList.add('show');},600);}
+function selectLevel(level){selectedLevel=level;const videoFolder=currentLang==='en'?'video/en/':'video/it/';const dataFolder=currentLang==='en'?'data/en/':'data/it/';if(level==="principiante")levelVideo=`${videoFolder}inizio_principiante.mp4`;else if(level==="medio")levelVideo=`${videoFolder}inizio_medio.mp4`;else levelVideo=`${videoFolder}inizio_master.mp4`;const jsonFile=`${dataFolder}quiz_${level}.json`;fetch(jsonFile).then(r=>r.json()).then(d=>{quizData=d;playIntroVideo();}).catch(e=>alert("Errore nel caricamento del quiz: "+e));}
+function playIntroVideo(){enableAudio();const overlay=document.createElement('div');overlay.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100dvh;background:black;display:flex;justify-content:center;align-items:center;z-index:9999;';const wrapper=document.createElement('div');const v=document.createElement('video');v.src=levelVideo||'video/inizio.mp4';v.autoplay=true;v.playsInline=true;v.controls=false;v.muted=!audioEnabled;const mob=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);if(mob){wrapper.style.width='100vw';wrapper.style.height='100dvh';v.style.width='100%';v.style.height='100%';v.style.objectFit='cover';}else{wrapper.style.width='90%';wrapper.style.maxWidth='900px';wrapper.style.aspectRatio='16 / 9';v.style.width='100%';v.style.height='100%';v.style.objectFit='contain';}const skip=document.createElement('button');skip.textContent=t('skipIntro');skip.style.cssText='position:absolute;top:20px;right:20px;background:var(--main-color);color:white;border:none;border-radius:12px;padding:10px 20px;font-size:1rem;font-weight:600;box-shadow:0 4px 12px rgba(0,119,182,0.3);cursor:pointer;transition:all 0.3s;z-index:10000;';skip.onclick=()=>{document.body.removeChild(overlay);startQuiz();};wrapper.appendChild(v);overlay.appendChild(wrapper);overlay.appendChild(skip);document.body.appendChild(overlay);v.addEventListener('ended',()=>{document.body.removeChild(overlay);startQuiz();},{once:true});}
+function startQuiz(){currentQuestion=0;score=0;showQuestion();}
+function showQuestion(){clearInterval(timerInterval);timeLeft=15;fadeOutIn(()=>{const q=quizData[currentQuestion];const imgPath=q.media&&q.media.question?q.media.question:null;quizContainer.innerHTML=`<div id='timer'>${t('timeLeft')} <span id='time-left'>${timeLeft}</span>${t('seconds')}</div><div class='progress-bar'><div class='progress' id='progress' style='width:100%'></div></div><button id='stop-btn' onclick='returnToStart()'>${t('stopQuiz')}</button>${imgPath?`<img src='${imgPath}' alt='' style='width:100%;border-radius:10px;margin:10px 0;'>`:''}<div class='question'>${q.question}</div><div class='options'>${q.options.map((o,i)=>`<button onclick='checkAnswer(${i})'>${o}</button>`).join('')}</div><div id='feedback'></div>`;startTimer();});}
+function startTimer(){clearInterval(timerInterval);const DURATION=15;const startTs=Date.now();const tick=()=>{const elapsed=Math.floor((Date.now()-startTs)/1000);timeLeft=Math.max(DURATION-elapsed,0);const tEl=document.getElementById('time-left');const pEl=document.getElementById('progress');if(tEl)tEl.textContent=timeLeft;if(pEl)pEl.style.width=(timeLeft/DURATION)*100+'%';if(timeLeft<=0){clearInterval(timerInterval);showTimeout();}};tick();timerInterval=setInterval(tick,1000);}
+function showTimeout(){const fb=document.getElementById('feedback');fb.textContent=t('timeout');fb.style.color='red';setTimeout(()=>nextQuestion(),800);}
+function checkAnswer(s){clearInterval(timerInterval);const q=quizData[currentQuestion];const fb=document.getElementById('feedback');if(s===q.correct){score++;fb.textContent=t('correct');fb.style.color='green';}else{fb.textContent=t('wrong');fb.style.color='red';}setTimeout(()=>nextQuestion(),800);}
+function nextQuestion(){currentQuestion++;if(currentQuestion<quizData.length)showQuestion();else showScore();}
+
+function showScore(){
+  clearInterval(timerInterval);
+  const total=quizData.length;const percent=(score/total)*100;
+  const videoFolder=currentLang==='en'?'video/en/':'video/it/';
+  let vf=`${videoFolder}mi_dispiace.mp4`;let isPerfectMaster=false;
+  if(percent===100){vf=`${videoFolder}complimenti.mp4`;if(selectedLevel==="master")isPerfectMaster=true;}else if(percent>=75)vf=`${videoFolder}potenziale.mp4`;
+  fadeOutIn(()=>{
+    quizContainer.innerHTML=`<h2>${t('scoreText')} ${score} ${t('of')} ${total} ${t('questions')}</h2><video id='finalVideo' autoplay playsinline ${audioEnabled?'':'muted'} style='width:100%;border-radius:10px;'><source src='${vf}' type='video/mp4'></video><div id='restart-container'><button onclick='playIntroVideo()'>${t('restart')}</button><button onclick='returnToStart()'>${t('mainMenu')}</button></div>`;
+    if(isPerfectMaster){
+      const video=document.getElementById('finalVideo');
+      video.addEventListener('ended',()=>{
+        quizContainer.innerHTML=`<video id='trophyVideo' autoplay loop playsinline ${audioEnabled?'':'muted'} style='width:100%;border-radius:10px;'><source src='${videoFolder}coppa.mp4' type='video/mp4'></video><div id='restart-container'><button onclick='playIntroVideo()'>${t('restart')}</button><button onclick='returnToStart()'>${t('mainMenu')}</button></div>`;
+      },{once:true});
+    }
+  });
+}
+
+function returnToStart(){clearInterval(timerInterval);fadeOutIn(()=>{quizContainer.innerHTML=`<div class='intro-media'><video id='inlineIntroVideo' playsinline autoplay muted loop preload='metadata' poster='img/copertina.jpg' style='width:100%; border-radius:10px; margin-bottom:15px;' aria-label='Video introduttivo del quiz'><source src='${currentLang==="en"?"video/en/intro_1.mp4":"video/it/intro_1.mp4"}' type='video/mp4'></video></div><h2 id='level-title'>${t('levelTitle')}</h2><button onclick='selectLevel("principiante")'><span class='level-icon'>🌱</span> <span class='level-text'>${t('beginner')}</span></button><button onclick='selectLevel("medio")'><span class='level-icon'>⭐</span> <span class='level-text'>${t('medium')}</span></button><button onclick='selectLevel("master")'><span class='level-icon'>🏆</span> <span class='level-text'>${t('master')}</span></button>`;updateUIText();});}
+</script>
+<div id="footer"><span id="footer-text">Creato da</span> <a href="https://www.danielacolmenares.it" target="_blank">www.danielacolmenares.it</a></div>
+</body>
+</html>

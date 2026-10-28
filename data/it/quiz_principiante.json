@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Dove si trova Ispra?",
+    "media": {
+      "question": "img/principiante_q1_domanda.jpg"
+    },
+    "options": [
+      "Sul Lago di Como",
+      "Sul Lago Maggiore",
+      "Sul Lago di Garda"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Quale istituzione europea ha sede a Ispra?",
+    "media": {
+      "question": "img/principiante_q2_domanda.jpg"
+    },
+    "options": [
+      "Banca Centrale Europea",
+      "Centro Comune di Ricerca (JRC)",
+      "Parlamento Europeo"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "In quale provincia si trova Ispra?",
+    "media": {
+      "question": "img/principiante_q3_domanda.jpg"
+    },
+    "options": [
+      "Varese",
+      "Como",
+      "Novara"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Quanti sono i laghi della provincia di Varese?",
+    "media": {
+      "question": "img/principiante_q4_domanda.jpg"
+    },
+    "options": [
+      "7",
+      "4",
+      "5"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Come si chiama il lungolago principale di Ispra?",
+    "media": {
+      "question": "img/principiante_q5_domanda.jpg"
+    },
+    "options": [
+      "Lungolago Europa",
+      "Lungolago Garibaldi",
+      "Lungolago dei Pescatori"
+    ],
+    "correct": 0
+  }
+]

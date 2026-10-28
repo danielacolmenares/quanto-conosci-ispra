@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Fino a che anno ha funzionato l'ultima fornace di Ispra?",
+    "media": {
+      "question": "img/master_q1_domanda.jpg"
+    },
+    "options": [
+      "1969",
+      "1970",
+      "1960"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Qual era il nome del primo reattore nucleare di ricerca italiano realizzato a Ispra?",
+    "media": {
+      "question": "img/master_q2_domanda.jpg"
+    },
+    "options": [
+      "ISPRA-1",
+      "ATOM-1",
+      "NUCLEAR-1"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Da cosa deriva, secondo un'antica interpretazione, il nome di Ispra?",
+    "media": {
+      "question": "img/master_q3_domanda.jpg"
+    },
+    "options": [
+      "Dal nome di un antico fiume locale",
+      "Dalla natura rocciosa e aspra del suo paesaggio",
+      "Dalla parola latina per 'isola'"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "In quale località di Ispra si può ammirare la torre con il celebre orologio multiplo visibile in questa immagine?",
+    "media": {
+      "question": "img/master_q4_domanda.jpg"
+    },
+    "options": [
+      "Barza",
+      "Cascine",
+      "Riún Cà Növ"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "A chi è dedicato il monumento visibile in Piazza San Martino a Ispra, qui evidenziato nella foto d’epoca?",
+    "media": {
+      "question": "img/master_q5_domanda.jpg"
+    },
+    "options": [
+      "Padre Francesco da Ispra, missionario gesuita",
+      "Padre Ignazio da Ispra, missionario francescano",
+      "Padre Ilario da Ispra, missionario cappuccino"
+    ],
+    "correct": 1
+  }
+]

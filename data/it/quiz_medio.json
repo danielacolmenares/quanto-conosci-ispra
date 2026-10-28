@@ -1,0 +1,62 @@
+[
+  {
+    "question": "Cosa sono le famose fornaci di Ispra?",
+    "media": {
+      "question": "img/medio_q1_domanda.jpg"
+    },
+    "options": [
+      "Torri di guardia medievali",
+      "Vecchi forni usati per produrre calce",
+      "Antichi depositi di pietra locale"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Qual è l'obiettivo principale della ricerca scientifica svolta al JRC di Ispra?",
+    "media": {
+      "question": "img/medio_q2_domanda.jpg"
+    },
+    "options": [
+      "Pubblicare articoli scientifici per università e istituti di ricerca",
+      "Sviluppare tecnologie commerciali per aziende private",
+      "Supportare l'elaborazione delle politiche dell'Unione Europea"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Osservando il panorama dal lungolago di Ispra, quale regione italiana si trova sull’altra sponda del Lago Maggiore?",
+    "media": {
+      "question": "img/medio_q3_domanda.jpg"
+    },
+    "options": [
+      "Piemonte",
+      "Liguria",
+      "Veneto"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Qual è il nome del percorso panoramico che rappresenta il primo tratto dell'Anello delle Fornaci a Ispra?",
+    "media": {
+      "question": "img/medio_q4_domanda.jpg"
+    },
+    "options": [
+      "La Passeggiata delle Fornaci",
+      "La Passeggiata dell’Amore",
+      "La Passeggiata sul Lago"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Quali sono i principali ambiti di ricerca non nucleare del sito JRC di Ispra?",
+    "media": {
+      "question": "img/medio_q5_domanda.jpg"
+    },
+    "options": [
+      "Sostenibilità, spazio, sicurezza e salute",
+      "Agricoltura, musica e arte",
+      "Moda, turismo e gastronomia"
+    ],
+    "correct": 0
+  }
+]

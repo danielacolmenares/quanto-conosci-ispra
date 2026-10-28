@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What are the famous kilns of Ispra?",
+    "media": {
+      "question": "img/medio_q1_domanda.jpg"
+    },
+    "options": [
+      "Medieval watchtowers",
+      "Old furnaces used to produce lime",
+      "Ancient stone storage sites"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "What is the main goal of the scientific research carried out at the JRC in Ispra?",
+    "media": {
+      "question": "img/medio_q2_domanda.jpg"
+    },
+    "options": [
+      "To publish scientific papers for universities and research institutes",
+      "To develop commercial technologies for private companies",
+      "To support the development of European Union policies"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Looking at the view from Ispra’s lakeside, which Italian region lies on the opposite shore of Lake Maggiore?",
+    "media": {
+      "question": "img/medio_q3_domanda.jpg"
+    },
+    "options": [
+      "Piemonte",
+      "Liguria",
+      "Veneto"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "What is the name of the panoramic path that forms the first section of the 'Anello delle Fornaci' in Ispra?",
+    "media": {
+      "question": "img/medio_q4_domanda.jpg"
+    },
+    "options": [
+      "The Kilns Walk",
+      "The Lovers’ Walk",
+      "The Lake Promenade"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "What are the main non-nuclear research areas of the JRC site in Ispra?",
+    "media": {
+      "question": "img/medio_q5_domanda.jpg"
+    },
+    "options": [
+      "Sustainability, space, security and health",
+      "Agriculture, music and art",
+      "Fashion, tourism and gastronomy"
+    ],
+    "correct": 0
+  }
+]
